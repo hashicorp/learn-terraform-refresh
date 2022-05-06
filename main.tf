@@ -1,17 +1,11 @@
-terraform {
-  required_providers {
-    aws = {
-      source  = "hashicorp/aws"
-      version = "~> 3.27"
+provider "aws" {
+  region  = var.region
+
+  default_tags {
+    tags = {
+      hashicorp-learn = "refresh"
     }
   }
-
-  required_version = ">= 0.15.4"
-}
-
-provider "aws" {
-  profile = "default"
-  region  = var.region
 }
 
 data "aws_ami" "amazon_linux" {
